@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Heewon Yang — AI researcher working on multimodal AI, latent reasoning, retrieval-augmented generation, and efficient inference." />
+  <meta name="author" content="Heewon Yang" />
+  <meta property="og:title" content="Heewon Yang — AI Research" />
+  <meta property="og:description" content="Multimodal AI · LLM Reasoning · Efficient Inference · Vision-Language Models" />
+  <meta property="og:type" content="website" />
+  <title>Heewon Yang — AI Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="#top" aria-label="Home">HY<span>.</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">◐</button>
+        <button id="menuToggle" class="icon-btn menu-btn" aria-label="Open menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-copy reveal">
+        <div class="eyebrow">Undergraduate Researcher · Chung-Ang University</div>
+        <h1>Heewon <em>Yang</em></h1>
+        <p class="hero-lead">
+          I study how intelligent models can <strong>reason better</strong> and how AI systems can
+          <strong>run more efficiently</strong> — from latent graph reasoning and medical Vision-RAG
+          to visual KV-cache reuse for multimodal agents.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#research">View research</a>
+          <a class="btn secondary" href="https://github.com/Yang-Heewon" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <div class="hero-tags" aria-label="Research interests">
+          <span>Multimodal AI</span>
+          <span>LLM Reasoning</span>
+          <span>Efficient Inference</span>
+          <span>Vision-Language Models</span>
+        </div>
+      </div>
+
+      <aside class="hero-panel reveal delay-1">
+        <div class="profile-row">
+          <img class="avatar" src="https://github.com/Yang-Heewon.png" alt="Heewon Yang" />
+          <div>
+            <div class="profile-name">Heewon Yang</div>
+            <div class="muted">Industrial Engineering & AI</div>
+          </div>
+        </div>
+
+        <div class="focus-card">
+          <div class="mini-label">CURRENT FOCUS</div>
+          <h2>Visual memory for VLM agents</h2>
+          <p>
+            Diagnosing when compressed visual KV can be stored, transferred, and reused across
+            future questions or actions — without assuming the future query is known.
+          </p>
+        </div>
+
+        <div class="mini-grid">
+          <div>
+            <span class="mini-label">MODEL</span>
+            <strong>Reasoning</strong>
+          </div>
+          <div>
+            <span class="mini-label">SYSTEM</span>
+            <strong>Inference</strong>
+          </div>
+          <div>
+            <span class="mini-label">MODALITY</span>
+            <strong>Vision + Text</strong>
+          </div>
+          <div>
+            <span class="mini-label">STYLE</span>
+            <strong>Empirical</strong>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about" class="section container">
+      <div class="section-heading reveal">
+        <span class="section-kicker">01 / About</span>
+        <h2>Bridging model-level ideas and system-level constraints.</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-copy reveal">
+          <p>
+            I am an undergraduate researcher at Chung-Ang University studying Industrial Engineering
+            and Artificial Intelligence. My work sits between <strong>AI modeling</strong> and
+            <strong>AI systems</strong>: I am interested not only in improving what a model can infer,
+            but also in how its internal states, memory, and computation can be organized efficiently.
+          </p>
+          <p>
+            My recent work spans latent continuous reasoning for knowledge-graph QA, retrieval-augmented
+            generation for chest X-rays, and inference-time visual KV memory reuse. I also build practical
+            systems around model serving, automation, and full-stack tools.
+          </p>
+        </div>
+        <div class="principles reveal delay-1">
+          <div class="principle">
+            <span>01</span>
+            <div><strong>Reasoning</strong><p>Structured and latent computation beyond text-only chain-of-thought.</p></div>
+          </div>
+          <div class="principle">
+            <span>02</span>
+            <div><strong>Multimodality</strong><p>How visual evidence is retrieved, retained, and reused.</p></div>
+          </div>
+          <div class="principle">
+            <span>03</span>
+            <div><strong>Efficiency</strong><p>KV cache, serving, memory budgets, and inference-time optimization.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="section section-soft">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">02 / Selected Research</span>
+          <h2>Three threads, one question: how should AI use computation and memory?</h2>
+        </div>
+
+        <article class="research-card featured reveal">
+          <div class="research-index">R1</div>
+          <div class="research-main">
+            <div class="card-meta">
+              <span class="pill live">Ongoing</span>
+              <span>Multimodal Systems · 2026</span>
+            </div>
+            <h3>Visual KV Memory Reuse for VLM Agents</h3>
+            <p class="research-summary">
+              A controlled study of persistent visual memory: when a VLM stores visual KV states and
+              reuses them later, where does information loss first appear — serialization, transfer,
+              capacity, selection, query shift, or system cost?
+            </p>
+            <div class="research-points">
+              <span>Query-agnostic vs query-aware selection</span>
+              <span>Sparse / quantized / transformed KV</span>
+              <span>Cache-resume fidelity</span>
+              <span>Accuracy × latency × storage trade-offs</span>
+            </div>
+            <a class="text-link" href="https://github.com/Yang-Heewon/-" target="_blank" rel="noopener">Research repository ↗</a>
+          </div>
+          <div class="diagram memory-diagram" aria-hidden="true">
+            <div class="node image-node">Visual<br>Experience</div>
+            <div class="arrow">→</div>
+            <div class="node kv-node">Visual<br>KV</div>
+            <div class="arrow">→</div>
+            <div class="node store-node">Store</div>
+            <div class="arrow">→</div>
+            <div class="node query-node">Future<br>Query</div>
+          </div>
+        </article>
+
+        <article class="research-card reveal">
+          <div class="research-index">R2</div>
+          <div class="research-main">
+            <div class="card-meta">
+              <span class="pill">Public code</span>
+              <span>KGQA · Latent Reasoning</span>
+            </div>
+            <h3>Latent Continuous Reasoning for Retrieval-Augmented KGQA</h3>
+            <p class="research-summary">
+              A recursive subgraph reasoning framework that maintains a continuously updated latent state
+              instead of relying on text-based chain-of-thought. Controlled variants compare no-latent,
+              GRU-updated latent, and attention-updated latent reasoning on CWQ and WebQSP.
+            </p>
+            <div class="metric-row">
+              <div class="metric">
+                <span>CWQ · public checkpoint</span>
+                <strong>57.83</strong>
+                <small>Hit@1</small>
+              </div>
+              <div class="metric">
+                <span>CWQ · public checkpoint</span>
+                <strong>56.07</strong>
+                <small>F1</small>
+              </div>
+              <div class="metric">
+                <span>WebQSP · public checkpoint</span>
+                <strong>74.14</strong>
+                <small>Hit@1</small>
+              </div>
+            </div>
+            <div class="link-row">
+              <a class="text-link" href="https://github.com/Yang-Heewon/latent_reasoning_rag" target="_blank" rel="noopener">Reproduction repo ↗</a>
+              <a class="text-link muted-link" href="https://github.com/Yang-Heewon/gnn-trm" target="_blank" rel="noopener">Research code lineage ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="research-card reveal">
+          <div class="research-index">R3</div>
+          <div class="research-main">
+            <div class="card-meta">
+              <span class="pill">Public framework</span>
+              <span>Medical AI · Vision-RAG</span>
+            </div>
+            <h3>Vision-RAG for Chest X-ray Impression Generation</h3>
+            <p class="research-summary">
+              A plug-and-play framework for testing whether retrieved visual examples improve chest
+              X-ray impression generation. The pipeline separates dataset adapters, vision encoders,
+              VLM generators, retrieval, and paired No-RAG vs Vision-RAG evaluation.
+            </p>
+            <div class="research-points">
+              <span>Indiana / Open-i</span>
+              <span>PadChest-GR adapters</span>
+              <span>MedGemma & Qwen-family models</span>
+              <span>CheXbert-based evaluation</span>
+            </div>
+            <a class="text-link" href="https://github.com/Yang-Heewon/medical_project" target="_blank" rel="noopener">Framework repository ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section-heading reveal">
+        <span class="section-kicker">03 / Research Evolution</span>
+        <h2>Public code as a record of iteration, not a pile of repositories.</h2>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">KGQA foundation</div>
+          <div class="timeline-body">
+            <h3>TRM Subgraph Reader</h3>
+            <p>Recursive reasoning over multi-hop knowledge-graph subgraphs.</p>
+            <a href="https://github.com/Yang-Heewon/TRM-Subgraph-Reader" target="_blank" rel="noopener">Repository ↗</a>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Controlled reasoning</div>
+          <div class="timeline-body">
+            <h3>GRAPH-TRAVERSE → gnn-trm</h3>
+            <p>Asymmetric latent states, controlled model variants, and paper-oriented experiment design.</p>
+            <a href="https://github.com/Yang-Heewon/gnn-trm" target="_blank" rel="noopener">Repository ↗</a>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Reproducible release</div>
+          <div class="timeline-body">
+            <h3>latent_reasoning_rag</h3>
+            <p>Training-ready CWQ/WebQSP release with bundled reference checkpoints and reproduction commands.</p>
+            <a href="https://github.com/Yang-Heewon/latent_reasoning_rag" target="_blank" rel="noopener">Repository ↗</a>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Multimodal expansion</div>
+          <div class="timeline-body">
+            <h3>Medical Vision-RAG</h3>
+            <p>Retrieval and generation experiments move the research focus from graphs to multimodal evidence.</p>
+            <a href="https://github.com/Yang-Heewon/medical_project" target="_blank" rel="noopener">Repository ↗</a>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Current</div>
+          <div class="timeline-body">
+            <h3>Efficient visual memory</h3>
+            <p>From “what evidence should a model retrieve?” to “what internal visual state is worth storing and reusing?”</p>
+            <a href="https://github.com/Yang-Heewon/-" target="_blank" rel="noopener">Research log ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section section-dark">
+      <div class="container">
+        <div class="section-heading light reveal">
+          <span class="section-kicker">04 / Engineering</span>
+          <h2>Research-minded engineering outside the paper loop.</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <span class="project-no">01</span>
+            <h3>Family ERP</h3>
+            <p>A local-first family asset and tax management system with FastAPI, Next.js, PostgreSQL/SQLite, desktop packaging, and CI release automation.</p>
+            <div class="project-tags"><span>FastAPI</span><span>Next.js</span><span>Docker</span><span>CI/CD</span></div>
+            <a href="https://github.com/Yang-Heewon/accountant" target="_blank" rel="noopener">View code ↗</a>
+          </article>
+
+          <article class="project-card reveal delay-1">
+            <span class="project-no">02</span>
+            <h3>Research Ops Slack Bot</h3>
+            <p>A Slack workflow bot for requests, reminders, paper-review schedules, and a local vLLM-backed chatbot.</p>
+            <div class="project-tags"><span>Python</span><span>Slack API</span><span>vLLM</span><span>Automation</span></div>
+            <a href="https://github.com/Yang-Heewon/slack-app" target="_blank" rel="noopener">View code ↗</a>
+          </article>
+
+          <article class="project-card reveal delay-2">
+            <span class="project-no">03</span>
+            <h3>Object Detection Experiments</h3>
+            <p>Computer-vision experimentation around lightweight YOLO variants, model configuration, and detection workflows.</p>
+            <div class="project-tags"><span>Computer Vision</span><span>YOLO</span><span>PyTorch</span></div>
+            <a href="https://github.com/Yang-Heewon/CV_submission" target="_blank" rel="noopener">View code ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="section container">
+      <div class="section-heading reveal">
+        <span class="section-kicker">05 / Manuscripts & Research</span>
+        <h2>Current research outputs.</h2>
+      </div>
+
+      <div class="pub-list">
+        <article class="pub-item reveal">
+          <div class="pub-year">2026</div>
+          <div class="pub-content">
+            <span class="pub-type">Research manuscript</span>
+            <h3>Latent Continuous Reasoning for Retrieval-Augmented KGQA</h3>
+            <p>Heewon Yang et al. · Knowledge-graph question answering, recurrent latent state, retrieval-augmented reasoning.</p>
+            <a href="https://github.com/Yang-Heewon/latent_reasoning_rag" target="_blank" rel="noopener">Code & reproduction ↗</a>
+          </div>
+        </article>
+
+        <article class="pub-item reveal">
+          <div class="pub-year">2026</div>
+          <div class="pub-content">
+            <span class="pub-type">Ongoing research</span>
+            <h3>LeViR: Lesion-Grounded Vision-RAG for Chest X-ray Impression Generation</h3>
+            <p>Medical multimodal retrieval and report generation with explicit evaluation of retrieval-conditioned VLM inference.</p>
+            <a href="https://github.com/Yang-Heewon/medical_project" target="_blank" rel="noopener">Research framework ↗</a>
+          </div>
+        </article>
+
+        <article class="pub-item reveal">
+          <div class="pub-year">2026</div>
+          <div class="pub-content">
+            <span class="pub-type">Ongoing study</span>
+            <h3>Persistent Visual Memory & KV Reuse for Vision-Language Agents</h3>
+            <p>Diagnosing the fidelity, transferability, compression, and systems value of reusable visual KV memory.</p>
+            <a href="https://github.com/Yang-Heewon/-" target="_blank" rel="noopener">Research log ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section-heading reveal">
+        <span class="section-kicker">06 / Toolbox</span>
+        <h2>Tools I use to turn research questions into runnable systems.</h2>
+      </div>
+      <div class="toolbox reveal">
+        <div class="tool-group">
+          <h3>Modeling</h3>
+          <p>PyTorch · Transformers · Vision-Language Models · GNNs · Retrieval-Augmented Generation</p>
+        </div>
+        <div class="tool-group">
+          <h3>Inference</h3>
+          <p>vLLM · SGLang · KV Cache · GPU Serving · Quantization · Multi-GPU Experiments</p>
+        </div>
+        <div class="tool-group">
+          <h3>Engineering</h3>
+          <p>Python · FastAPI · Docker · GitHub Actions · Linux · REST APIs · Experiment Automation</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="container contact-inner reveal">
+        <span class="section-kicker">07 / Contact</span>
+        <h2>Interested in multimodal reasoning or efficient AI systems?</h2>
+        <p>
+          I am open to research conversations around multimodal AI, reasoning, retrieval,
+          model compression, and efficient inference.
+        </p>
+        <div class="contact-actions">
+          <a class="btn light-btn" href="https://github.com/Yang-Heewon" target="_blank" rel="noopener">GitHub profile ↗</a>
+          <a class="btn ghost-light" href="https://github.com/Yang-Heewon?tab=repositories" target="_blank" rel="noopener">All repositories ↗</a>
+        </div>
+        <p class="contact-note">Add your email and CV link here before sending the site to professors or labs.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Heewon Yang</span>
+      <span>Built as a lightweight static site for GitHub Pages.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

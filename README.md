@@ -1,31 +1,51 @@
-# Hi, I'm Heewon 👋
+# Heewon Yang — Personal Research Website
 
-AI Researcher interested in:
-- Multimodal AI
-- LLM Reasoning
-- Efficient LLM Inference
-- Vision-Language Models
-- KV Cache Compression
+Static research portfolio for GitHub Pages.
 
-## 🔬 Research
+## Files
 
-### LeViR
-Lesion-Grounded Vision-RAG for Chest X-ray Impression Generation
+- `index.html` — website content
+- `style.css` — responsive design + light/dark theme
+- `script.js` — theme toggle, mobile navigation, subtle reveal animation
 
-### LCR
-Latent Continuous Reasoning for Retrieval-Augmented KGQA
+## Deploy to GitHub Pages
 
-## ⚙️ Systems & Optimization
+1. Put these files in the root of `Yang-Heewon/Yang-Heewon.github.io`.
+2. Commit and push to the `main` branch.
+3. Open **Settings → Pages**.
+4. Under **Build and deployment**, choose **Deploy from a branch**.
+5. Select `main` and `/ (root)`.
+6. The site will appear at `https://yang-heewon.github.io`.
 
-- vLLM
-- SGLang
-- KV Cache Optimization
-- GPU Serving
+## Before sending this site to professors/labs
 
-## 🛠 Tech Stack
+Update these items in `index.html`:
 
-Python / PyTorch / CUDA / vLLM / SGLang
+- Add your preferred public email under the Contact section.
+- Add a CV PDF link if you want one visible.
+- Update manuscript status/venue only when it is public and accurate.
+- If you rename the current `-` repository, replace all `https://github.com/Yang-Heewon/-` links.
 
-## 📫 Contact
+## Recommended GitHub cleanup
 
-Email: ...
+The website intentionally highlights research and substantial engineering work rather than every historical repository.
+
+Recommended pinned repositories:
+
+1. current VLM visual-KV research repo (rename `-` first)
+2. `latent_reasoning_rag`
+3. `medical_project`
+4. `accountant`
+5. `slack-app`
+6. `CV_submission`
+
+Suggested rename:
+
+- `-` → `vlm-visual-kv-memory` or `visual-kv-reuse`
+
+Also create a separate profile README repository named exactly `Yang-Heewon`
+(the same as the GitHub username) if you want a custom README displayed on the GitHub profile page.
+
+## Notes
+
+The website does not claim a conference acceptance for ongoing manuscripts. Keep public-facing status wording conservative until the final venue/status is public.
