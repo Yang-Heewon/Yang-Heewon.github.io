@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hee Won Yang — Undergraduate researcher in multimodal AI, LLM reasoning, and efficient inference." />
+  <meta name="author" content="Hee Won Yang" />
+  <title>Hee Won Yang</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#1c2430;
+      --muted:#667085;
+      --line:#e7eaf0;
+      --accent:#2f5bea;
+      --soft:#f7f9fc;
+      --max:1040px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                  "Segoe UI", sans-serif;
+      line-height:1.68;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{
+      width:min(calc(100% - 40px), var(--max));
+      margin:0 auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      min-height:64px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .brand{
+      font-weight:800;
+      color:var(--text);
+      letter-spacing:-.02em;
+      white-space:nowrap;
+    }
+    .links{
+      display:flex;
+      gap:20px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      font-size:.93rem;
+    }
+    .links a{color:var(--muted)}
+    .links a:hover{color:var(--text);text-decoration:none}
+    .cv-link{
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:7px 12px;
+      color:var(--text)!important;
+      background:#fff;
+    }
+
+    main{padding-bottom:80px}
+
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 240px;
+      gap:44px;
+      align-items:center;
+      padding:88px 0 70px;
+      border-bottom:1px solid var(--line);
+    }
+    .hello{
+      color:var(--accent);
+      font-weight:700;
+      font-size:.92rem;
+      margin-bottom:10px;
+    }
+    h1{
+      font-size:clamp(2.8rem,7vw,5rem);
+      line-height:1;
+      letter-spacing:-.055em;
+      margin:0 0 22px;
+      font-weight:800;
+    }
+    .lead{
+      font-size:1.16rem;
+      color:var(--muted);
+      max-width:690px;
+      margin:0 0 20px;
+    }
+    .lead strong{color:var(--text);font-weight:700}
+    .hero-meta{
+      color:var(--muted);
+      font-size:.96rem;
+      margin-top:16px;
+    }
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:24px;
+      font-weight:650;
+      font-size:.94rem;
+    }
+    .avatar-wrap{
+      width:220px;
+      height:260px;
+      justify-self:end;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:var(--soft);
+    }
+    .avatar{
+      max-width:100%;
+      max-height:100%;
+      width:auto;
+      height:auto;
+      display:block;
+      object-fit:contain;
+    }
+
+    section{
+      padding:68px 0 10px;
+      scroll-margin-top:80px;
+    }
+    .section-grid{
+      display:grid;
+      grid-template-columns:170px 1fr;
+      gap:38px;
+      align-items:start;
+    }
+    .section-title{
+      margin:0;
+      font-size:1.05rem;
+      letter-spacing:-.02em;
+      font-weight:800;
+      color:var(--text);
+      position:sticky;
+      top:92px;
+    }
+    .section-body{
+      min-width:0;
+    }
+    .section-body > p:first-child{margin-top:0}
+
+    .about-text{
+      font-size:1.05rem;
+      color:var(--muted);
+      max-width:760px;
+    }
+    .about-text strong{color:var(--text)}
+
+    .interest-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:20px;
+    }
+    .interest-list span{
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:.84rem;
+      color:var(--muted);
+      background:var(--soft);
+    }
+
+    .news-list,.education-list,.experience-list,.project-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+    .row{
+      display:grid;
+      grid-template-columns:118px 1fr;
+      gap:18px;
+      padding:14px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .row:first-child{padding-top:0}
+    .date{
+      color:var(--muted);
+      font-size:.88rem;
+      white-space:nowrap;
+    }
+    .row-title{
+      font-weight:700;
+      color:var(--text);
+      margin-bottom:3px;
+    }
+    .row-sub{
+      color:var(--muted);
+      font-size:.94rem;
+    }
+
+    .research-item{
+      display:grid;
+      grid-template-columns:240px 1fr;
+      gap:26px;
+      padding:30px 0;
+      border-bottom:1px solid var(--line);
+      align-items:start;
+    }
+    .research-item:first-child{padding-top:0}
+
+    /* Reserved space for each research project's key figure.
+       Later, replace the empty div with:
+       <img class="research-figure" src="figures/your-image.png" alt="...">
+    */
+    .research-figure{
+      width:100%;
+      aspect-ratio:16 / 9;
+      border:1px solid var(--line);
+      border-radius:10px;
+      background:#fbfcfe;
+      object-fit:contain;
+      display:block;
+    }
+
+    .research-content{min-width:0}
+    .research-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .research-item h3{
+      font-size:1.12rem;
+      margin:0 0 7px;
+      letter-spacing:-.015em;
+      line-height:1.4;
+    }
+    .research-item p{
+      color:var(--muted);
+      margin:0 0 10px;
+      font-size:.96rem;
+      max-width:760px;
+    }
+    .research-meta{
+      color:var(--muted);
+      font-size:.84rem;
+      margin-bottom:8px;
+    }
+    .tag{
+      display:inline-block;
+      padding:4px 8px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      font-size:.76rem;
+      color:var(--muted);
+      white-space:nowrap;
+      background:var(--soft);
+    }
+    .research-links{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      font-size:.9rem;
+      font-weight:650;
+    }
+
+    .pub{
+      display:grid;
+      grid-template-columns:70px 1fr;
+      gap:18px;
+      padding:20px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .pub:first-child{padding-top:0}
+    .pub-year{
+      color:var(--muted);
+      font-size:.88rem;
+    }
+    .pub-title{
+      font-weight:750;
+      margin-bottom:4px;
+    }
+    .pub-authors,.pub-venue{
+      color:var(--muted);
+      font-size:.92rem;
+    }
+    .pub-venue{margin-top:3px}
+    .me{color:var(--text);font-weight:700}
+
+    .experience-item{
+      padding:0 0 24px;
+      margin-bottom:24px;
+      border-bottom:1px solid var(--line);
+    }
+    .experience-head{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-start;
+      margin-bottom:6px;
+    }
+    .experience-role{font-weight:750}
+    .experience-org{color:var(--muted);font-size:.94rem}
+    .experience-date{color:var(--muted);font-size:.88rem;white-space:nowrap}
+    .experience-item ul{
+      margin:10px 0 0;
+      padding-left:20px;
+      color:var(--muted);
+      font-size:.94rem;
+    }
+
+    .project{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:24px;
+      padding:18px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .project:first-child{padding-top:0}
+    .project-title{font-weight:750;margin-bottom:4px}
+    .project-desc{color:var(--muted);font-size:.94rem}
+    .project-link{white-space:nowrap;font-size:.9rem;font-weight:650}
+
+    .contact-box{
+      border-top:1px solid var(--line);
+      margin-top:60px;
+      padding-top:36px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:30px;
+    }
+    .contact-box h2{
+      margin:0 0 8px;
+      font-size:1.3rem;
+    }
+    .contact-box p{
+      margin:0;
+      color:var(--muted);
+    }
+    .contact-links{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      font-weight:650;
+    }
+
+    footer{
+      margin-top:58px;
+      padding:24px 0 40px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:.85rem;
+    }
+
+
+    .current-research{
+      display:grid;
+      grid-template-columns:minmax(300px, 42%) 1fr;
+      gap:36px;
+      align-items:center;
+      padding:4px 0 18px;
+    }
+    .current-research-figure{
+      width:100%;
+      aspect-ratio:16 / 10;
+      border:1px solid var(--line);
+      border-radius:10px;
+      background:
+        linear-gradient(135deg, rgba(47,91,234,.035), rgba(47,91,234,.012)),
+        #fbfcfe;
+      display:block;
+      object-fit:contain;
+    }
+    .current-research-content{min-width:0}
+    .current-research-head{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:flex-start;
+      margin-bottom:10px;
+    }
+    .current-research h3{
+      font-size:1.34rem;
+      line-height:1.42;
+      letter-spacing:-.02em;
+      margin:3px 0 0;
+    }
+    .current-research p{
+      color:var(--muted);
+      font-size:1rem;
+      margin:0;
+      max-width:680px;
+    }
+    .research-keywords{margin-top:18px}
+
+    @media(max-width:760px){
+      .wrap{width:min(calc(100% - 28px), var(--max))}
+      .links a:not(.cv-link){display:none}
+      .hero{
+        grid-template-columns:1fr;
+        gap:30px;
+        padding:58px 0 52px;
+      }
+      .avatar-wrap{
+        width:150px;
+        height:180px;
+        justify-self:start;
+        grid-row:1;
+      }
+      .avatar{
+        max-width:100%;
+        max-height:100%;
+      }
+      h1{font-size:3.4rem}
+      .section-grid{
+        grid-template-columns:1fr;
+        gap:22px;
+      }
+      .section-title{
+        position:static;
+        padding-bottom:10px;
+        border-bottom:1px solid var(--line);
+      }
+      .row,.pub{grid-template-columns:1fr;gap:5px}
+      .research-item{
+        grid-template-columns:1fr;
+        gap:16px;
+      }
+      .research-figure{
+        max-width:360px;
+      }
+      .current-research{
+        grid-template-columns:1fr;
+        gap:18px;
+      }
+      .current-research-figure{
+        max-width:520px;
+      }
+      .research-top,.experience-head,.contact-box{
+        flex-direction:column;
+      }
+      .project{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top">Hee Won Yang</a>
+      <nav class="links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a class="cv-link" href="cv.pdf" target="_blank" rel="noopener">CV ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!--
+  EASY FILE SWAPS
+  - Replace profile.jpg with your own square/portrait photo.
+  - Put paper PDFs in /papers and link them from Research/Publications.
+-->
+  <main id="top" class="wrap">
+    <section class="hero">
+      <div>
+        <div class="hello">Hello, I am</div>
+        <h1>Hee Won Yang</h1>
+        <p class="lead">
+          Undergraduate researcher at <strong>Chung-Ang University</strong>, working at the intersection of
+          <strong>multimodal AI</strong>, <strong>LLM reasoning</strong>, and <strong>efficient inference</strong>.
+        </p>
+        <p class="hero-meta">
+          Department of Artificial Intelligence · Seoul, South Korea
+        </p>
+        <div class="hero-actions">
+          <a href="mailto:heewon6205@naver.com">Email</a>
+          <a href="https://github.com/Yang-Heewon" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="cv.pdf" target="_blank" rel="noopener">CV ↗</a>
+        </div>
+      </div>
+      <div class="avatar-wrap"><img class="avatar" src="profile.jpg" onerror="this.onerror=null;this.src='https://github.com/Yang-Heewon.png';" alt="Portrait of Hee Won Yang"></div>
+    </section>
+
+    <section id="about">
+      <div class="section-grid">
+        <h2 class="section-title">About</h2>
+        <div class="section-body">
+          <p class="about-text">
+            I am interested in building AI systems that are both <strong>capable</strong> and
+            <strong>efficient</strong>. My recent research spans latent reasoning over knowledge graphs,
+            retrieval-augmented multimodal generation for chest X-rays, and inference-time memory
+            optimization for vision-language models. I especially enjoy problems where
+            <strong>model design and systems constraints meet</strong>.
+          </p>
+          <div class="interest-list">
+            <span>Multimodal AI</span>
+            <span>Vision-Language Models</span>
+            <span>LLM Reasoning</span>
+            <span>Retrieval-Augmented Generation</span>
+            <span>Model Compression</span>
+            <span>Efficient Inference</span>
+            <span>LLM Serving</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="news">
+      <div class="section-grid">
+        <h2 class="section-title">News</h2>
+        <div class="section-body">
+          <ul class="news-list">
+            <li class="row">
+              <div class="date">2026</div>
+              <div>
+                <div class="row-title">LeViR submitted to AAAI 2027</div>
+                <div class="row-sub">Lesion-grounded Vision-RAG for chest X-ray impression generation.</div>
+              </div>
+            </li>
+            <li class="row">
+              <div class="date">2026</div>
+              <div>
+                <div class="row-title">Joined SSLAB, Chung-Ang University</div>
+                <div class="row-sub">Working on LLM serving, inference optimization, and GPU resource management.</div>
+              </div>
+            </li>
+            <li class="row">
+              <div class="date">2025</div>
+              <div>
+                <div class="row-title">MEDIATOR presented at ICTC 2025</div>
+                <div class="row-sub">Oral presentation on medical diagnosis with gated distillation and decoupled learning.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="section-grid">
+        <h2 class="section-title">Research</h2>
+        <div class="section-body">
+
+          <!--
+            CURRENT RESEARCH FIGURE SLOT
+
+            When you have a representative figure, replace:
+              <div class="current-research-figure" aria-hidden="true"></div>
+
+            with:
+              <img class="current-research-figure"
+                   src="figures/visual-kv.png"
+                   alt="Overview of persistent visual memory for vision-language models">
+          -->
+          <article class="current-research">
+            <div class="current-research-figure" aria-hidden="true"></div>
+
+            <div class="current-research-content">
+              <div class="current-research-head">
+                <div>
+                  <div class="research-meta">2026 – Present</div>
+                  <h3>Persistent Visual Memory for Vision-Language Models</h3>
+                </div>
+                <span class="tag">Ongoing</span>
+              </div>
+
+              <p>
+                Studying how visual KV states can be compressed, stored, transferred, and reused across
+                future interactions while preserving useful visual information and reducing inference cost.
+              </p>
+
+              <div class="interest-list research-keywords">
+                <span>Visual KV Cache</span>
+                <span>Compression</span>
+                <span>Inference-time Memory</span>
+                <span>Vision-Language Models</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="section-grid">
+        <h2 class="section-title">Publications</h2>
+        <div class="section-body">
+
+          <article class="pub">
+            <div class="pub-year">2026</div>
+            <div>
+              <div class="pub-title">LeViR: Lesion-Grounded Vision-RAG for Chest X-Ray Impression Generation</div>
+              <div class="pub-authors"><span class="me">Hee Won Yang</span>, Donghyeok Bae, Juwon Lim, Yi Geon Jang, Sunjae Yoon</div>
+              <div class="pub-venue">Submitted to AAAI 2027.</div>
+              <div class="research-links" style="margin-top:8px">
+                <a href="https://github.com/Yang-Heewon/medical_project" target="_blank" rel="noopener">Code ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pub">
+            <div class="pub-year">2026</div>
+            <div>
+              <div class="pub-title">Latent Continuous Reasoning for Retrieval-Augmented Knowledge Graph Question Answering</div>
+              <div class="pub-authors"><span class="me">Hee Won Yang</span>, Yewon Choi</div>
+              <div class="pub-venue">Manuscript in preparation for resubmission.</div>
+              <div class="research-links" style="margin-top:8px">
+                <a href="papers/lcr.pdf" target="_blank" rel="noopener">PDF ↗</a>
+                <a href="https://github.com/Yang-Heewon/latent_reasoning_rag" target="_blank" rel="noopener">Code ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pub">
+            <div class="pub-year">2025</div>
+            <div>
+              <div class="pub-title">MEDIATOR: Enhancing Medical Diagnosis via Gated Distillation and Decoupled Learning</div>
+              <div class="pub-authors">Kyuan Oh, Sunguk Lee, Mina Hwang, <span class="me">Hee Won Yang</span>, Kiseong Lee</div>
+              <div class="pub-venue">International Conference on ICT Convergence (ICTC 2025), Oral Presentation.</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-grid">
+        <h2 class="section-title">Research Experience</h2>
+        <div class="section-body">
+
+          <article class="experience-item">
+            <div class="experience-head">
+              <div>
+                <div class="experience-role">Undergraduate Researcher · SSLAB</div>
+                <div class="experience-org">Chung-Ang University · Advisor: Prof. Cheol-Ho Hong</div>
+              </div>
+              <div class="experience-date">Mar. 2026 – Present</div>
+            </div>
+            <ul>
+              <li>Researching efficient LLM serving, inference optimization, and GPU resource management.</li>
+              <li>Implemented Layerwise Prefill in SGLang and reimplemented a MuxServe baseline on current vLLM/SGLang stacks.</li>
+            </ul>
+          </article>
+
+          <article class="experience-item">
+            <div class="experience-head">
+              <div>
+                <div class="experience-role">Undergraduate Researcher · tAILab</div>
+                <div class="experience-org">Yonsei University</div>
+              </div>
+              <div class="experience-date">Mar. 2025 – Feb. 2026</div>
+            </div>
+            <ul>
+              <li>Worked on multimodal AI, retrieval-augmented generation, knowledge graphs, and LLM-based agent systems.</li>
+              <li>Developed MeSH-grounded graph traversal RAG and a five-agent systematic literature review platform.</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-grid">
+        <h2 class="section-title">Education</h2>
+        <div class="section-body">
+          <ul class="education-list">
+            <li class="row">
+              <div class="date">2021 – 2027</div>
+              <div>
+                <div class="row-title">B.S. in Artificial Intelligence</div>
+                <div class="row-sub">Chung-Ang University, Seoul, South Korea</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-grid">
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="section-body project-list">
+
+          <article class="project">
+            <div>
+              <div class="project-title">Family ERP & Tax Management</div>
+              <div class="project-desc">Full-stack local-first application using FastAPI, Next.js, SQLAlchemy, Docker, desktop packaging, and CI release automation.</div>
+            </div>
+            <a class="project-link" href="https://github.com/Yang-Heewon/accountant" target="_blank" rel="noopener">GitHub ↗</a>
+          </article>
+
+          <article class="project">
+            <div>
+              <div class="project-title">Research Operations Slack Bot</div>
+              <div class="project-desc">Slack workflow automation with requests, reminders, review scheduling, and a local vLLM-backed chatbot.</div>
+            </div>
+            <a class="project-link" href="https://github.com/Yang-Heewon/slack-app" target="_blank" rel="noopener">GitHub ↗</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <div id="contact" class="contact-box">
+      <div>
+        <h2>Contact</h2>
+        <p>Research conversations and collaboration inquiries are welcome.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:heewon6205@naver.com">heewon6205@naver.com</a>
+        <a href="https://github.com/Yang-Heewon" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="cv.pdf" target="_blank" rel="noopener">CV ↗</a>
+      </div>
+    </div>
+
+    <footer>
+      © 2026 Hee Won Yang
+    </footer>
+  </main>
+</body>
+</html>
